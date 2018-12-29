@@ -12,3 +12,100 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.App{
+  display: grid;
+  min-width: 50%;
+  grid-template-columns: 40%;
+}
+
+.watch{
+  padding:20px 10px 0px 10px;
+}
+
+.item{
+  display:grid;
+  grid-template-columns: 15% 25% 10% auto;
+  grid-gap: 8px;
+  align-items: center;
+  border-style: solid;
+  border-width: 1px 0px 1px 0px;
+  border-color: rgb(167, 167, 170);
+  font-size: 1.4ch;
+  height:40px;
+  margin-top: -1px;
+  
+}
+.search{
+  width:100%;
+  border: none;
+  height:100%;
+  position: relative;
+
+}
+.search>input{
+  width:100%;
+  border: none;
+  height:30px;
+  position: relative;
+  background-color: #f6f6f6;
+  padding: 2px;
+}
+.search-result{
+  position: relative;
+  width: 100%;
+}
+.symbol{
+  margin-left:2%;
+  justify-self: start
+}
+.market{
+  justify-self: start
+}
+.price{
+  justify-self: end;
+}
+
+.dropdown {
+  width:100%;
+  display: block;
+  float: left;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  position: absolute;
+  
+}
+
+.dropdownItem {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height:30px;
+  background-color: #f6f6f6;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 2;
+}
+.red{
+  color:red;
+}
+.green{
+  color:green;
+}
+
+.dropdown li:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+@media only screen and (max-width: 600px) {
+  .App{
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  
+}
