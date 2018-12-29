@@ -16,9 +16,10 @@ code {
 .App{
   display: grid;
   grid-template-areas:
-    'header  header header header header header header'
-    'menu  menu menu main main main main'
-    'menu  menu menu main main main main';
+    'header  header header header header '
+    'menu  main main main main'
+    'menu  main main main main';
+  grid-template-columns: 30% 10% 20% 20% 20%;
 }
 
 .watch{
