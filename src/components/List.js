@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import ListItem from "./ListItem";
 import { DropDownItem } from "./DropdownItem";
+import RLDD from 'react-list-drag-and-drop/lib/RLDD';
 
 class List extends Component {
   constructor(props) {
     super(props);
+    this.itemRenderer = this.itemRenderer.bind(this);
+    this.handleRLDDChange = this.handleRLDDChange.bind(this);
     this.state = {
       market: [
         "Abucoins",
@@ -72,7 +75,8 @@ class List extends Component {
         "itBit"
       ],
       input: "",
-      displayData: []
+      displayData: [{market:"AbuCoins",id:0}],
+      id:1
     };
   }
 
@@ -84,19 +88,31 @@ class List extends Component {
   handleDropDownclick = (e, item) => {
     //   e.preventDefault();
     let newDislayData = this.state.displayData;
+    let newID = this.state.id+1;
     if (this.state.displayData.findIndex(i => i === item) === -1) {
-      newDislayData.push(item);
-      this.setState({ displayData: newDislayData, input: "" });
+      newDislayData.push({market:item,id:newID});
+      this.setState({ displayData: newDislayData, input: "" ,id:newID});
     } else {
       alert("Already added to the list");
     }
   };
+
+  itemRenderer(item, index) {
+    return (
+      <ListItem market={item.market}/>
+    );
+  }
+
+  handleRLDDChange(reorderedItems) {
+    this.setState({ displayData: reorderedItems });
+  }
 
   blurInput = () => {
     this.setState({ input: "" });
   };
 
   render() {
+    const items = this.state.displayData;
     return (
       <div className="watch">
         <div className="SearchContainer">
@@ -128,14 +144,21 @@ class List extends Component {
           </div>
         </div>
 
-        <ListItem symbol="BTC" tsym="USD" market="OKCoin" />
+        {/* <ListItem symbol="BTC" tsym="USD" market="OKCoin" /> */}
+        <RLDD
+          cssClasses="example"
+          items={items}
+          itemRenderer={this.itemRenderer}
+          onChange={this.handleRLDDChange}
+        />
+        
 
-        {this.state.displayData &&
+        {/* {this.state.displayData &&
           this.state.displayData.map((item, index) => {
             return (
               <ListItem market={item} symbol="BTC" tsym="USD" key={index} />
             );
-          })}
+          })} */}
       </div>
     );
   }
