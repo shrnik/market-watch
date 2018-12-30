@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { MarketDepth } from "./marketDepth";
 
 class ListItem extends Component {
   constructor(props) {
@@ -54,96 +55,14 @@ class ListItem extends Component {
           <span className="price">
             {this.state.show ? this.state.data.PRICE : ""}
           </span>
-          <button onClick={this.toggleDropDown} />
+          <button onClick={this.toggleDropDown}><i class="fa fa-bars"></i></button>
         </div>
 
 
         
         {this.state.showDropDown && 
-        <div className="row depth-table">
-          <table className="six columns buy">
-            <thead>
-              <tr>
-                <th className="order-price">
-                  <span>Bid</span> {/**/}
-                </th>{" "}
-                <th className="orders">Orders</th>{" "}
-                <th className="text-right quantity">Qty.</th>
-              </tr>
-            </thead>{" "}
-            <tbody>
-              <tr>
-                <td className="rate">0.00</td> <td className="orders">0</td>{" "}
-                <td
-                  className="text-right quantity"
-                  style={{
-                    background:
-                      "linear-gradient(to left, rgba(65, 132, 243, 0.1) 5%, transparent 5%)"
-                  }}
-                >
-                  0
-                </td>
-              </tr>
-              <tr>
-                <td className="rate">0.00</td> <td className="orders">0</td>{" "}
-                <td
-                  className="text-right quantity"
-                  style={{
-                    background:
-                      "linear-gradient(to left, rgba(65, 132, 243, 0.1) 5%, transparent 5%)"
-                  }}
-                >
-                  0
-                </td>
-              </tr>
-              <tr>
-                <td className="rate">0.00</td> <td className="orders">0</td>{" "}
-                <td
-                  className="text-right quantity"
-                  style={{
-                    background:
-                      "linear-gradient(to left, rgba(65, 132, 243, 0.1) 5%, transparent 5%)"
-                  }}
-                >
-                  0
-                </td>
-              </tr>
-              <tr>
-                <td className="rate">0.00</td> <td className="orders">0</td>{" "}
-                <td
-                  className="text-right quantity"
-                  style={{
-                    background:
-                      "linear-gradient(to left, rgba(65, 132, 243, 0.1) 5%, transparent 5%)"
-                  }}
-                >
-                  0
-                </td>
-              </tr>
-              <tr>
-                <td className="rate">0.00</td> <td className="orders">0</td>{" "}
-                <td
-                  className="text-right quantity"
-                  style={{
-                    background:
-                      "linear-gradient(to left, rgba(65, 132, 243, 0.1) 5%, transparent 5%)"
-                  }}
-                >
-                  0
-                </td>
-              </tr>
-            </tbody>{" "}
-            <tfoot>
-              <tr>
-                <td>Total</td>{" "}
-                <td colSpan={2} className="text-right">
-                  0
-                </td>{" "}
-                {/**/}
-              </tr>
-            </tfoot>
-          </table>
-          </div>}
+         <MarketDepth/>
+        }
       </React.Fragment>
     );
   }

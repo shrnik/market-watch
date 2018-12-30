@@ -16,44 +16,71 @@ code {
 .App{
   display: grid;
   grid-template-areas:
-    'header  header header header header '
-    'menu  main main main main'
-    'menu  main main main main';
-  grid-template-columns: 30% 10% 20% 20% 20%;
+    'headerL  headerR '
+    'menu  main '
+    ;
+  grid-template-columns: 30% auto;
+  grid-template-rows:9vh 91vh;
+  font-family: Open Sans,sans-serif;
 }
 
 .watch{
-  padding:2px 2px 0px 0px;
+  /* padding:2px 0px 0px 0px; */
   grid-area: menu;
+  border: solid rgb(206, 206, 206);;;
+border-width: 0 1px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 100%;
+  margin-top:-1px
 }
 
 .item{
   display:grid;
-  grid-template-columns: 15% 25% 18% auto 5%;
+  grid-template-columns: 15% 25% 18% auto 10%;
   grid-gap: 8px;
   align-items: center;
   border-style: solid;
-  border-width: 1px 0px 1px 0px;
-  border-color: rgb(167, 167, 170);
-  font-size: 0.8rem;
+  border-width: 1px 1px 1px 1px;
+  border-color: rgb(206, 206, 206);
+  font-size: 0.75rem;
   height:40px;
   margin-top: -1px;
-  
+  margin-right: -1px
+}
+.item button{
+  width:15px;
+  padding:0px 0px;
+  margin-left:-1px;
+  display: none;
+  font-size: 10px;
+  margin-left: 5px;
+}
+.item:hover{
+  background-color: rgb(249, 248, 248);
+  cursor: all-scroll
+}
+
+.item:hover button{
+  display:block;
 }
 .search{
-  width:100%;
-  border: none;
-  height:100%;
   position: relative;
-
 }
-.search>input{
+.search input{
   width:100%;
-  border: none;
-  height:30px;
+  height:35px;
   position: relative;
-  background-color: #f6f6f6;
-  padding: 2px;
+  text-indent: 30px;
+  padding: 0px;
+}
+.search .fa-search { 
+  position: absolute;
+  z-index: 30;
+  top: 13px;
+  left: 8px;
+  font-size: 11px;
+  color:rgb(138, 138, 138)
 }
 .search-result{
   position: relative;
@@ -61,7 +88,8 @@ code {
 }
 .symbol{
   margin-left:2%;
-  justify-self: start
+  justify-self: start;
+  padding:5px
 }
 .market{
   justify-self: start
@@ -73,9 +101,8 @@ code {
 .dropdown {
   width:100%;
   display: block;
-  float: left;
-  padding: 5px 0;
-  margin: 2px 0 0;
+  padding: 0px 0;
+  margin: 0px 0 0;
   font-size: 14px;
   text-align: left;
   list-style: none;
@@ -84,16 +111,29 @@ code {
 }
 
 .dropdownItem {
+  text-transform: uppercase;
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-content: center;
   align-items: center;
-  height:30px;
-  background-color: #f6f6f6;
+  height:25px;
+  background-color:white;
   overflow: auto;
   border: 1px solid #ddd;
+  margin-top:-1px;
   z-index: 2;
+  font-size: 0.75rem;
+  padding-left:20px;
+}
+
+.dropdownItem .badge{
+  margin-right:10px;
+  font-size: 0.6rem;
+  background: rgba(255, 0, 0, 0.123);
+  border-radius: 0.25rem;
+  padding:2px 2px;
+  color:rgba(255, 0, 0, 0.685)
 }
 .red{
   color:red;
@@ -102,16 +142,31 @@ code {
   color:green;
 }
 
-.dropdown li:hover {background-color: #ddd;}
+.dropdown li:hover {background-color: rgba(240, 240, 240);}
 
 
 
-.topnav {
-  grid-area: header;
+.topnav{
+  /* display:grid; */
+  /* grid-template-areas: 'headerL headerR headerR headerR headerR'; */
   overflow: hidden;
   background-color: white;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(206, 206, 206);
 }
+
+.topnav .right{
+  grid-area: headerR
+}
+
+
+
+/* .leftHeader{
+  grid-area: headerL;
+}
+
+.rightHeader{
+  grid-area: headerR;
+} */
 
 .topnav a {
   float: right;

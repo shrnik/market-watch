@@ -1,0 +1,53 @@
+.depth-table{
+    padding-top:10px;
+    display:grid;
+    grid-template-columns: 50% 50%
+}
+.priceTable{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.priceTable .row{
+    display: grid;
+    grid-template-columns: 50% 50%
+}
+
+.priceTable .row .columns{
+    display:flex;
+    justify-content: space-between;
+    margin: 0px 5px 0px 5px;
+    font-size: 0.7rem;
+}
+
+.priceTable .row .columns label {
+    color:rgb(145, 145, 145);
+    padding-left:10px
+}
+
+.priceTable .row .columns span {
+    color:rgb(0, 0, 0);
+}
+
+
+.buy{
+    color: rgb(73, 73, 255);
+}
+.sell{
+    color: rgb(255, 44, 44)
+}
+.depth-table thead{
+    font-size: 0.625rem;
+    color:rgb(145, 145, 145);
+    text-transform: uppercase;
+}
+
+.depth-table tbody{
+    font-size: 0.75rem
+}
+.depth-table tfoot{
+    font-size: 0.75rem
+}
+.depth-table tfoot .text-right{
+    text-align:right;
+    padding-right: 14px;
+}

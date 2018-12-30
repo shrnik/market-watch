@@ -1,0 +1,31 @@
+.topnav{
+    font-size: 0.75rem;
+}
+
+.topnav-left{
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-self: center;
+    
+}
+
+
+
+.topnav-left .instruments{
+    padding:5px 5px
+}
+
+.topnav-left .instruments .heading{
+    font-weight: 530
+}
+
+.topnav-left .instruments .value{
+    padding:5px;
+}
+
+.topnav-left .instruments .change{
+    color: rgb(122, 122, 122);
+    padding:2px;
+}
