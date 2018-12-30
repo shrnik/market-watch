@@ -75,7 +75,7 @@ class List extends Component {
         "itBit"
       ],
       input: "",
-      displayData: [{ market: "AbuCoins", id: 0 }],
+      displayData: [{ market: "Abucoins", id: 0 }],
       id: 1
     };
   }
@@ -89,7 +89,7 @@ class List extends Component {
     //   e.preventDefault();
     let newDislayData = this.state.displayData;
     let newID = this.state.id + 1;
-    if (this.state.displayData.findIndex(i => i === item) === -1) {
+    if (this.state.displayData.findIndex(i => i.market === item) === -1) {
       newDislayData.push({ market: item, id: newID });
       this.setState({ displayData: newDislayData, input: "", id: newID });
     } else {
@@ -97,8 +97,15 @@ class List extends Component {
     }
   };
 
+  handleDelete=(item)=>{
+    const index = this.state.displayData.findIndex(i => i.market === item)
+    let displayData = this.state.displayData;
+    displayData.splice(index,1);
+    this.setState({displayData});
+  }
+
   itemRenderer(item, index) {
-    return <ListItem market={item.market} />;
+    return <ListItem market={item.market} onDelete={this.handleDelete}/>;
   }
 
   handleRLDDChange(reorderedItems) {

@@ -19,7 +19,7 @@ code {
     'headerL  headerR '
     'menu  main '
     ;
-  grid-template-columns: 30% auto;
+  grid-template-columns: 25% auto;
   grid-template-rows:9vh 91vh;
   font-family: Open Sans,sans-serif;
 }
@@ -37,8 +37,8 @@ border-width: 0 1px;
 
 .item{
   display:grid;
-  grid-template-columns: 15% 25% 18% auto 10%;
-  grid-gap: 8px;
+  grid-template-columns: 15% 23% 18% auto 8% 8%;
+  grid-gap: 5px;
   align-items: center;
   border-style: solid;
   border-width: 1px 1px 1px 1px;
@@ -54,7 +54,7 @@ border-width: 0 1px;
   margin-left:-1px;
   display: none;
   font-size: 10px;
-  margin-left: 5px;
+  margin-left: 0px;
 }
 .item:hover{
   background-color: rgb(249, 248, 248);

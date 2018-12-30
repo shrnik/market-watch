@@ -40,6 +40,8 @@ class ListItem extends Component {
     this.setState({ showDropDown: newState });
   };
 
+
+
   render() {
     return (
       <React.Fragment>
@@ -49,20 +51,29 @@ class ListItem extends Component {
             {this.props.market}{" "}
           </span>
           <span className="change">
-            {this.state.show ? "% " + this.state.data.CHANGEPCT24HOUR : ""}{" "}
+            {this.state.show ? (
+              <div>
+                {"% " + this.state.data.CHANGEPCT24HOUR}{" "}
+                {this.state.color === "green"?<i class="fa fa-angle-up" />:<i class="fa fa-angle-down" />}
+                
+              </div>
+            ) : (
+              ""
+            )}
           </span>
           {/* <span className="tsym">{this.props.tsym} </span> */}
           <span className="price">
             {this.state.show ? this.state.data.PRICE : ""}
           </span>
-          <button onClick={this.toggleDropDown}><i class="fa fa-bars"></i></button>
+          <button onClick={this.toggleDropDown}>
+            <i class="fa fa-bars" />
+          </button>
+          <button onClick={()=>this.props.onDelete(this.props.market)}>
+            <i class="fa fa-trash" />
+          </button>
         </div>
 
-
-        
-        {this.state.showDropDown && 
-         <MarketDepth/>
-        }
+        {this.state.showDropDown && <MarketDepth />}
       </React.Fragment>
     );
   }
